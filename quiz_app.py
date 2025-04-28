@@ -3,15 +3,10 @@ import bcrypt
 import random
 import json
 from psycopg2 import sql
+from db_connection import DB_PARAMS
 
 def get_db_connection():
-    return psycopg2.connect(
-        dbname="quiz_app",
-        user="fabianth",
-        password="300699",
-        host="localhost",
-        port="5432"
-    )
+    return psycopg2.connect(**DB_PARAMS)
 
 def check_password(password, hashed_password):
     if isinstance(hashed_password, memoryview):
