@@ -26,20 +26,6 @@ Players can register, login, and test their knowledge by answering randomly sele
 
     bcrypt (Password hashing)
 
-📦 Project Structure
-/project-databases-command-line-quiz-Fabi-DCI
-    ├── __pycache__/         # (ignored by Git)
-    ├── env/                 # (ignored by Git)
-    ├── .gitignore
-    ├── db_connection.py     # (ignored by Git)
-    ├── questions.json
-    ├── questions_format.txt
-    ├── quiz.py              # Main application (formerly quiz_app.py)
-    ├── quiz_gui.py           # GUI version if you are building one
-    ├── script.sql           # Database setup script
-    ├── README.md
-
-
 ⚙️ Setup Instructions
 
     Clone the repository:
