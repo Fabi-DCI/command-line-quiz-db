@@ -1,33 +1,102 @@
-# Command Line Quiz
+Command Line Quiz Application
 
-In this project, you will create a quiz application that will allow users to test their knowledge on various topics. Also to enrich the topics and questions that are provided. The application will use command line input and output to communicate with the user.
+A command-line based quiz game built with Python and PostgreSQL.
+Players can register, login, and test their knowledge by answering randomly selected questions from a database.
+🚀 Features
 
-#### Prerequisites:
-- Basic SQL
-- Command line input and output. 
-- Using variables, operators and control flow structures, conditionals while loops.
-- Use postgresql from python and query the database. 
+    User registration and secure login (passwords hashed with bcrypt)
 
-By the end of this project, you will have gained experience in these areas and created a fully functional command line quiz application.
+    Randomized quiz questions
+
+    Add new quiz questions to specific topics
+
+    Load bulk questions from a JSON file
+
+    View existing questions by topic
+
+    PostgreSQL database integration
+
+🛠️ Tech Stack
+
+    Python 3
+
+    PostgreSQL
+
+    psycopg2 (PostgreSQL database driver for Python)
+
+    bcrypt (Password hashing)
+
+📦 Project Structure
+/project-databases-command-line-quiz-Fabi-DCI
+    ├── __pycache__/         # (ignored by Git)
+    ├── env/                 # (ignored by Git)
+    ├── .gitignore
+    ├── db_connection.py     # (ignored by Git)
+    ├── questions.json
+    ├── questions_format.txt
+    ├── quiz.py              # Main application (formerly quiz_app.py)
+    ├── quiz_gui.py           # GUI version if you are building one
+    ├── script.sql           # Database setup script
+    ├── README.md
 
 
-### Implementetion Feautures
+⚙️ Setup Instructions
 
-1. The application will prompt the user with an initial menu where they can select to be tested on an existing topic or enter a new topic/new question or exit. 
+    Clone the repository:
 
-2. If the user selects to be tested on an existing topic, the application will randomly select a specific number of questions (hardcoded in the code) from the corresponding table in the PostgreSQL database. Each question will be displayed one by one, along with a number of possible answers (3 to 6). The user will select the answer they believe is correct, and the application will move on to the next question. After the last question is answered, the user's total score will be displayed.
+git clone git@github.com:Fabi-DCI/command-line-quiz-db.git
+cd command-line-quiz-db
 
-3. The questions will be stored and retrieved from the PostgreSQL database. For each main topic, there will be a separate table with entries for the module, submodule, difficulty level (1, 2, or 3), question, right answer, and 2-5 wrong answers. The choices will be displayed shuffled and the questions will be chosen in random.
+    Install dependencies:
 
-4. If the user selects to add additional questions, they will choose the main topic, and a new table will be created. They will then be prompted to enter each field in sequence, including the question, the correct answer, and 2-5 wrong answers. Once all fields are entered, the user will have the option to store the question. If the topic already exists, the user can simply add questions to the existing table.
+pip install psycopg2 bcrypt
 
+    Database Setup:
 
-#### Extra Features (Optional):
+    Create a PostgreSQL database named quiz_app.
 
-- **Database Indexing**: Index columns such as `difficulty_level` for faster query performance if necessary.
-- **Extend Features**: Add user management to allow users to create accounts and track their quiz progress over time.
-- **Deploy**: Host the PostgreSQL server on a cloud platform and make the quiz available via a terminal or web interface.
-- **Add graphical user interface**: Transform your application into a graphical user interface using any of Python's GUI applications such as Tkinter, PyGT, Kivy etc.
+    Create required tables: users, topics, and questions.
 
----
+    (You will need to create the tables manually or with an SQL script.)
 
+    Configure your database connection:
+
+    Create a db_connection.py file (this file is ignored from Git).
+
+DB_PARAMS = {
+    "dbname": "quiz_app",
+    "user": "your_username",
+    "password": "your_password",
+    "host": "localhost",
+    "port": "5432"
+}
+
+(Or copy from db_connection_example.py if available.)
+
+    Run the Application:
+
+python quiz.py
+
+📖 How to Use
+
+    Register as a new user.
+
+    Login to your account.
+
+    Start a quiz by selecting a topic and answering random questions.
+
+    Add new questions manually to expand the quiz.
+
+    View existing questions organized by topic.
+
+    Bulk upload questions from a structured JSON file.
+
+🔒 Security
+
+    Passwords are hashed using bcrypt before storing them in the database.
+
+    Database credentials are kept private and are not uploaded to GitHub.
+
+✍️ Author
+
+    Fabian Thamm
