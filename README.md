@@ -57,8 +57,6 @@ DB_PARAMS = {
     "port": "5432"
 }
 
-(Or copy from db_connection_example.py if available.)
-
     Run the Application:
 
 python quiz.py
